@@ -1,7 +1,8 @@
 @import "reset";
 @import "header";
 @import "footer";
-@import "./partials/filters.scss";
+@import "filters";
+@import "content";
 
 .app {
   display: flex;
