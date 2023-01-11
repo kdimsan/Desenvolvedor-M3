@@ -1,5 +1,7 @@
 @import "reset";
 @import "header";
+@import "footer";
+@import "./partials/filters.scss";
 
 .app {
   display: flex;
@@ -13,4 +15,24 @@ body {
 
 main {
   flex: 1;
+  .search {
+    &__top {
+      padding: 0 16px;
+      margin-bottom: 40px;
+      margin-top: 40px;
+    }
+
+    &__top-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    &__title {
+      font-size: 32px;
+      line-height: 44px;
+    }
+  }
 }
