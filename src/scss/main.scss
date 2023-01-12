@@ -35,5 +35,14 @@ main {
       font-size: 32px;
       line-height: 44px;
     }
+
+    &__orderby {
+      width: 142px;
+      height: 42px;
+      padding: 7px 10px 8px 7px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      cursor: pointer;
+    }
   }
 }
