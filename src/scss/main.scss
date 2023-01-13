@@ -29,6 +29,12 @@ main {
       width: 100%;
       max-width: 1440px;
       margin: 0 auto;
+
+      @media (max-width: 640px) {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     &__title {
@@ -43,6 +49,10 @@ main {
       border: 1px solid rgba(0, 0, 0, 0.5);
       border-radius: 5px;
       cursor: pointer;
+
+      @media (max-width: 640px) {
+        display: none;
+      }
     }
   }
 }

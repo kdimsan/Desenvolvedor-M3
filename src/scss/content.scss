@@ -18,6 +18,16 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 24px;
     margin-left: 48px;
+
+    @media (max-width: 1180px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 875px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 640px) {
+      margin-left: 0;
+    }
   }
 
   .produto {

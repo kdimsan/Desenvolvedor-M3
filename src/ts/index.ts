@@ -6,6 +6,8 @@ const productList = document.querySelector(".content__products-list");
 
 const counterItens = document.querySelector(".header__counter-itens");
 
+const checkboxFilter = document.querySelectorAll(".filters__checkbox");
+
 const serverUrl = "http://localhost:5000";
 
 async function main() {
