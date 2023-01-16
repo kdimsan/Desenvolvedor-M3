@@ -35,6 +35,31 @@
                 Ordernar
               </button>
             </div>
+            <div class="order-mobile">
+              <div class="order-mobile__header">
+                <div class="order-mobile__title">Ordernar</div>
+                <svg
+                  class="order-mobile__close-button"
+                  width="19"
+                  height="20"
+                  viewBox="0 0 19 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 18.852L17.5547 1.00001" stroke="black" />
+                  <line
+                    y1="-0.5"
+                    x2="25.2899"
+                    y2="-0.5"
+                    transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)"
+                    stroke="black"
+                  />
+                </svg>
+              </div>
+              <div class="order-mobile__recent">Mais Recente</div>
+              <div class="order-mobile__cheaper">Mais Barato</div>
+              <div class="order-mobile__expensiver">Mais Caro</div>
+            </div>
             <select class="search__orderby" name="select">
               <option value="ordernar-por">Ordernar por</option>
               <option value="mais-recente">Mais Recente</option>
@@ -46,8 +71,46 @@
         <div class="content">
           <div class="content__wrapper">
             <div class="filters">
+              <div class="filters__header-mobile">
+                <span class="filters__mobile-title">Filtrar</span>
+                <svg
+                  class="filters__close-button"
+                  width="19"
+                  height="20"
+                  viewBox="0 0 19 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0.5 18.852L17.5547 1.00001" stroke="black" />
+                  <line
+                    y1="-0.5"
+                    x2="25.2899"
+                    y2="-0.5"
+                    transform="matrix(0.711746 0.702437 -0.874311 0.485367 0 1.23547)"
+                    stroke="black"
+                  />
+                </svg>
+              </div>
               <div class="filters__colors">
                 <div class="filters__titles">Cores</div>
+                <div class="filters__colors-opener">
+                  <div class="filters__colors-title-mobile">
+                    <h2>Cores</h2>
+                  </div>
+                  <svg
+                    width="20"
+                    height="15"
+                    viewBox="0 0 20 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L10 14L19 1.0135"
+                      stroke="#666666"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
                 <div class="filters__colors-content">
                   <div>
                     <input
@@ -142,8 +205,27 @@
                   </div>
                 </div>
               </div>
+
               <div class="filters__sizes">
                 <div class="filters__titles">Tamanhos</div>
+                <div class="filters__sizes-opener">
+                  <div class="filters__sizes-title-mobile">
+                    <h2>Tamanhos</h2>
+                  </div>
+                  <svg
+                    width="20"
+                    height="15"
+                    viewBox="0 0 20 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L10 14L19 1.0135"
+                      stroke="#666666"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
                 <div class="filters__sizes-buttons">
                   <div class="filters__buttons">P</div>
                   <div class="filters__buttons">M</div>
@@ -158,50 +240,70 @@
 
               <div class="filters__prices">
                 <div class="filters__titles">Faixa de Preços</div>
-                <div>
-                  <input
-                    type="checkbox"
-                    class="filters__checkbox"
-                    id="50"
-                    name="50"
-                  />
-                  <label for="50">De R$0 a R$50</label>
+                <div class="filters__prices-opener">
+                  <div class="filters__prices-title-mobile">
+                    <h2>Faixa de Preços</h2>
+                  </div>
+                  <svg
+                    width="20"
+                    height="15"
+                    viewBox="0 0 20 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 1L10 14L19 1.0135"
+                      stroke="#666666"
+                      stroke-linecap="round"
+                    />
+                  </svg>
                 </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    class="filters__checkbox"
-                    id="150"
-                    name="150"
-                  />
-                  <label for="150">De R$51 a R$150</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    class="filters__checkbox"
-                    id="300"
-                    name="300"
-                  />
-                  <label for="300">De R$151 a R$300</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    class="filters__checkbox"
-                    id="500"
-                    name="500"
-                  />
-                  <label for="500">De R$301 a R$500</label>
-                </div>
-                <div>
-                  <input
-                    type="checkbox"
-                    class="filters__checkbox"
-                    id="501"
-                    name="501"
-                  />
-                  <label for="501">A partir de R$501</label>
+                <div class="filters__prices-content">
+                  <div>
+                    <input
+                      type="checkbox"
+                      class="filters__checkbox"
+                      id="50"
+                      name="50"
+                    />
+                    <label for="50">De R$0 a R$50</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      class="filters__checkbox"
+                      id="150"
+                      name="150"
+                    />
+                    <label for="150">De R$51 a R$150</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      class="filters__checkbox"
+                      id="300"
+                      name="300"
+                    />
+                    <label for="300">De R$151 a R$300</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      class="filters__checkbox"
+                      id="500"
+                      name="500"
+                    />
+                    <label for="500">De R$301 a R$500</label>
+                  </div>
+                  <div>
+                    <input
+                      type="checkbox"
+                      class="filters__checkbox"
+                      id="501"
+                      name="501"
+                    />
+                    <label for="501">A partir de R$501</label>
+                  </div>
                 </div>
               </div>
             </div>
