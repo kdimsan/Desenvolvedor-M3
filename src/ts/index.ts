@@ -3,13 +3,23 @@ import { Product } from "./Product";
 interface Item {
   id: string;
 }
+
 const carrinho: Item[] = [];
 
+let selectedFiltersColors: String[] = [];
+let selectedFiltersSizes: string[] = [];
+let selectedFiltersPrices: string[] = [];
+
 const productList = document.querySelector(".content__products-list");
+const showMoreButton = document.querySelector(".content__show-more");
 
 const counterItens = document.querySelector(".header__counter-itens");
 
-const checkboxFilter = document.querySelectorAll(".filters__checkbox");
+const checkboxesFiltersColors = document.querySelectorAll(".filters__checkbox");
+const checkboxesFiltersPrices = document.querySelectorAll(
+  ".filters__checkbox-prices"
+);
+const buttonsFilters = document.querySelectorAll(".filters__buttons");
 
 const closeFiltersMobile = document.querySelector(".filters__close-button");
 const closeOrderbyMobile = document.querySelector(
@@ -59,11 +69,69 @@ async function main() {
     filters.classList.remove("filterMobileOpened");
   });
 
-  async function getProducts() {
+  showMoreButton.addEventListener("click", () => {
+    loadPage(produtos.slice(11));
+    showMoreButton.classList.add("content__show-more-active");
+  });
+
+  async function getProducts(firstIndex: number, lastIndex: number) {
     const response = await fetch("http://localhost:5000/products");
     const data = await response.json();
     return data;
   }
+
+  checkboxesFiltersColors.forEach((checkboxFilter) => {
+    checkboxFilter.addEventListener("click", () => {
+      const filterColorChecked = selectedFiltersColors.includes(
+        checkboxFilter.id
+      );
+      if (!filterColorChecked) {
+        selectedFiltersColors.push(checkboxFilter.id);
+        console.log(selectedFiltersColors);
+      } else {
+        selectedFiltersColors = selectedFiltersColors.filter(
+          (selectedFilter) => selectedFilter !== checkboxFilter.id
+        );
+        console.log(selectedFiltersColors);
+      }
+    });
+  });
+
+  buttonsFilters.forEach((buttonFilter) => {
+    buttonFilter.addEventListener("click", () => {
+      const filterButtonActive = selectedFiltersSizes.includes(buttonFilter.id);
+      if (!filterButtonActive) {
+        selectedFiltersSizes.push(buttonFilter.id);
+        console.log(selectedFiltersSizes);
+      } else {
+        selectedFiltersSizes = selectedFiltersSizes.filter(
+          (selectedFilter) => selectedFilter !== buttonFilter.id
+        );
+        console.log(selectedFiltersSizes);
+      }
+    });
+  });
+
+  checkboxesFiltersPrices.forEach((checkboxFilter) => {
+    checkboxFilter.addEventListener("click", () => {
+      const filterPriceChecked = selectedFiltersPrices.includes(
+        checkboxFilter.id
+      );
+      if (!filterPriceChecked) {
+        selectedFiltersPrices.push(checkboxFilter.id);
+        console.log(selectedFiltersPrices);
+      } else {
+        selectedFiltersPrices = selectedFiltersPrices.filter(
+          (selectedFilter) => selectedFilter !== checkboxFilter.id
+        );
+        console.log(selectedFiltersPrices);
+      }
+    });
+  });
+
+  /*function filterByColor(data: Product[], color: string): Product[] {
+    return data.filter((data) => data.color === color);
+  }*/
 
   async function actualizedCart(id: string) {
     const item = {
@@ -73,8 +141,8 @@ async function main() {
     counterItens.innerHTML = carrinho.length.toString();
   }
 
-  const produtos = await getProducts();
-  loadPage(produtos);
+  const produtos = await getProducts(0, 9);
+  loadPage(produtos.slice(0, 9));
   function loadPage(produtos: Product[]) {
     for (const produto of produtos) {
       const productContainer = document.createElement("div");

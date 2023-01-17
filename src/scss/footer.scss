@@ -3,8 +3,9 @@
   height: 40px;
   background-color: #000;
   display: flex;
-  justify-content: center; //alinha coluna ao centro
-  align-items: center; //alinha verticalmente ao centro
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 
   &__text {
     font-size: 14px;

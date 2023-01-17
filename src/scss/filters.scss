@@ -123,6 +123,16 @@
     justify-content: center;
   }
 
+  &__checkbox-prices {
+    border-radius: 0;
+    width: 16px;
+    height: 16px;
+    outline: transparent;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+    justify-content: center;
+  }
+
   &__sizes-opener {
     display: none;
     @media (max-width: 640px) {
