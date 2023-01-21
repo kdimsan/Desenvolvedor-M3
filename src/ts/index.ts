@@ -10,9 +10,6 @@ let selectedFiltersColors: string[] = [];
 let selectedFiltersSizes: string[] = [];
 let selectedFiltersPrices: string[] = [];
 
-let minValue: number = 0;
-let maxValue: number;
-
 const productList = document.querySelector(".content__products-list");
 const showMoreButton = document.querySelector(".content__show-more");
 
@@ -44,15 +41,33 @@ const sizesButtons = document.querySelector(".filters__sizes-buttons");
 const pricesOpener = document.querySelector(".filters__prices-opener");
 const pricesContent = document.querySelector(".filters__prices-content");
 
+let buttonShowMoreColors = document.querySelector(
+  ".filters__show-more-colors"
+) as HTMLButtonElement;
+let hiddenColors = document.getElementById("hidden-colors") as HTMLElement;
+let teste = document.querySelector(".filters__teste") as HTMLElement;
+
 const serverUrl = "http://localhost:5000";
 
 async function main() {
+  buttonShowMoreColors.addEventListener("click", () => {
+    if (hiddenColors.classList.contains("hidden")) {
+      hiddenColors.classList.remove("hidden");
+      teste.innerHTML = "Mostrar menos cores";
+    } else {
+      hiddenColors.classList.add("hidden");
+      teste.innerHTML = "Ver todas as cores";
+    }
+  });
+
   colorsOpener.addEventListener("click", () => {
     colorsContent.classList.toggle("active");
   });
+
   sizesOpener.addEventListener("click", () => {
     sizesButtons.classList.toggle("active");
   });
+
   pricesOpener.addEventListener("click", () => {
     pricesContent.classList.toggle("active");
   });
@@ -60,6 +75,7 @@ async function main() {
   orderbyMobile.addEventListener("click", () => {
     orderby.classList.add("orderby-mobile-opened");
   });
+
   filterMobile.addEventListener("click", () => {
     filters.classList.add("filterMobileOpened");
   });
@@ -67,18 +83,22 @@ async function main() {
   closeOrderbyMobile.addEventListener("click", () => {
     orderby.classList.remove("orderby-mobile-opened");
   });
+
   closeFiltersMobile.addEventListener("click", () => {
     filters.classList.remove("filterMobileOpened");
   });
 
   showMoreButton.addEventListener("click", () => {
     loadPage(produtos.slice(11));
+
     showMoreButton.classList.add("content__show-more-active");
   });
 
-  async function getProducts(firstIndex: number, lastIndex: number) {
+  async function getProducts() {
     const response = await fetch("http://localhost:5000/products");
+
     const data = await response.json();
+
     return data;
   }
 
@@ -87,6 +107,7 @@ async function main() {
       const filterColorChecked = selectedFiltersColors.includes(
         checkboxFilter.id
       );
+
       if (!filterColorChecked) {
         selectedFiltersColors.push(checkboxFilter.id);
       } else {
@@ -126,7 +147,6 @@ async function main() {
           (selectedFilter) => selectedFilter !== checkboxFilter.id
         );
       }
-
       loadPage(produtos.slice(0, 9));
     });
   });
@@ -139,8 +159,10 @@ async function main() {
     counterItens.innerHTML = carrinho.length.toString();
   }
 
-  const produtos = await getProducts(0, 9);
+  const produtos = await getProducts();
+
   loadPage(produtos.slice(0, 9));
+
   function loadPage(produtos: Product[]) {
     if (selectedFiltersColors.length > 0) {
       produtos = produtos.filter((product) => {
@@ -157,68 +179,25 @@ async function main() {
     }
 
     if (selectedFiltersPrices.length > 0) {
-      let filteredProducts: Product[] = [];
-      let selectedFilter = selectedFiltersPrices.map(Number);
-      let menorValor = Math.min(...selectedFilter);
-      let maiorValor = Math.max(...selectedFilter);
-      console.log("testando menor", menorValor);
-      console.log("testando maior", maiorValor);
+      const productsFilteredByPriceRange: Product[] = [];
 
-      /*for (const selectedFilterPrice of selectedFiltersPrices) {
-        
+      selectedFiltersPrices.forEach((filterPrice) => {
+        const priceRange = filterPrice.split(" - ");
 
-        //nao preciso encontrar dentro do produtos, preciso encontrar dentro do selected filters
-        if (selectedFilterPrice == "filter__50") {
-          minValue = 0;
-          maxValue = 50;
-          filteredProducts = filteredProducts.concat(
-            produtos.filter((product) => {
-              return product.price >= minValue && product.price <= maxValue;
-            })
-          );
-          console.log(filteredProducts);
-        }
-        if (selectedFilterPrice == "filter__150") {
-          console.log("acessou");
-          minValue = 51;
-          maxValue = 150;
-          filteredProducts = filteredProducts.concat(
-            produtos.filter((product) => {
-              return product.price >= minValue && product.price <= maxValue;
-            })
-          );
-        }
-        if (selectedFilterPrice == "filter__300") {
-          minValue = 151;
-          maxValue = 300;
-          filteredProducts = filteredProducts.concat(
-            produtos.filter((product) => {
-              return product.price >= minValue && product.price <= maxValue;
-            })
-          );
-        }
-        if (selectedFilterPrice == "filter__500") {
-          minValue = 301;
-          maxValue = 500;
-          filteredProducts = filteredProducts.concat(
-            produtos.filter((product) => {
-              return product.price >= minValue && product.price <= maxValue;
-            })
-          );
-        }
-        if (selectedFilterPrice == "filter__501") {
-          minValue = 501;
+        const priceRangeAsNumbers = priceRange.map(Number);
 
-          filteredProducts = filteredProducts.concat(
-            produtos.filter((product) => {
-              return product.price >= minValue;
-            })
-          );
-        }
+        const menorValor = Math.min(...priceRangeAsNumbers);
+        const maiorValor = Math.max(...priceRangeAsNumbers);
 
-        produtos = filteredProducts;
-      }*/
-      console.log(selectedFiltersPrices);
+        const filteredByPriceRange = produtos.filter(
+          (product) =>
+            product.price >= menorValor && product.price <= maiorValor
+        );
+
+        productsFilteredByPriceRange.push(...filteredByPriceRange);
+      });
+
+      produtos = productsFilteredByPriceRange;
     }
 
     const elements = document.querySelectorAll(".produto");
@@ -226,7 +205,6 @@ async function main() {
       elements.forEach((li) => li.remove());
     }
 
-    console.log("produtos depois de filtrar", produtos);
     for (const produto of produtos) {
       const productContainer = document.createElement("li");
       productContainer.classList.add("produto");

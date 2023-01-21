@@ -15,7 +15,6 @@
           <a href="/">
             <img class="header__logo" src="img/logo-m3.png" />
           </a>
-
           <div class="header__bag">
             <img src="img/carrinho.png" />
             <div class="header__counter-itens"></div>
@@ -35,6 +34,7 @@
                 Ordernar
               </button>
             </div>
+
             <div class="order-mobile">
               <div class="order-mobile__header">
                 <div class="order-mobile__title">Ordernar</div>
@@ -60,6 +60,7 @@
               <div class="order-mobile__cheaper">Mais Barato</div>
               <div class="order-mobile__expensiver">Mais Caro</div>
             </div>
+
             <select class="search__orderby" name="select">
               <option value="ordernar-por">Ordernar por</option>
               <option value="mais-recente">Mais Recente</option>
@@ -68,6 +69,7 @@
             </select>
           </div>
         </div>
+
         <div class="content">
           <div class="content__wrapper">
             <div class="filters">
@@ -91,8 +93,10 @@
                   />
                 </svg>
               </div>
+
               <div class="filters__colors">
                 <div class="filters__titles">Cores</div>
+
                 <div class="filters__colors-opener">
                   <div class="filters__colors-title-mobile">
                     <h2>Cores</h2>
@@ -111,8 +115,9 @@
                     />
                   </svg>
                 </div>
+
                 <div class="filters__colors-content">
-                  <div>
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox"
@@ -121,7 +126,8 @@
                     />
                     <label for="Amarelo">Amarelo</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox"
@@ -131,7 +137,7 @@
                     <label for="Azul">Azul</label>
                   </div>
 
-                  <div>
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox"
@@ -140,7 +146,8 @@
                     />
                     <label for="Branco">Branco</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox"
@@ -149,7 +156,8 @@
                     />
                     <label for="Cinza">Cinza</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox"
@@ -158,50 +166,76 @@
                     />
                     <label for="Laranja">Laranja</label>
                   </div>
-                  <div>
-                    <input
-                      type="checkbox"
-                      class="filters__checkbox"
-                      id="Verde"
-                      name="Verde"
-                    />
-                    <label for="Verde">Verde</label>
+
+                  <div id="hidden-colors" class="hidden">
+                    <div class="filters__checkbox-content">
+                      <input
+                        type="checkbox"
+                        class="filters__checkbox"
+                        id="Verde"
+                        name="Verde"
+                      />
+                      <label for="Verde">Verde</label>
+                    </div>
+
+                    <div class="filters__checkbox-content">
+                      <input
+                        type="checkbox"
+                        class="filters__checkbox"
+                        id="Vermelho"
+                        name="Vermelho"
+                      />
+                      <label for="Vermelho">Vermelho</label>
+                    </div>
+
+                    <div class="filters__checkbox-content">
+                      <input
+                        type="checkbox"
+                        class="filters__checkbox"
+                        id="Preto"
+                        name="Preto"
+                      />
+                      <label for="Preto">Preto</label>
+                    </div>
+
+                    <div class="filters__checkbox-content">
+                      <input
+                        type="checkbox"
+                        class="filters__checkbox"
+                        id="Rosa"
+                        name="Rosa"
+                      />
+                      <label for="Rosa">Rosa</label>
+                    </div>
+
+                    <div class="filters__checkbox-content">
+                      <input
+                        type="checkbox"
+                        class="filters__checkbox"
+                        id="Vinho"
+                        name="Vinho"
+                      />
+                      <label for="Vinho">Vinho</label>
+                    </div>
                   </div>
-                  <div>
-                    <input
-                      type="checkbox"
-                      class="filters__checkbox"
-                      id="Vermelho"
-                      name="Vermelho"
-                    />
-                    <label for="Vermelho">Vermelho</label>
-                  </div>
-                  <div>
-                    <input
-                      type="checkbox"
-                      class="filters__checkbox"
-                      id="Preto"
-                      name="Preto"
-                    />
-                    <label for="Preto">Preto</label>
-                  </div>
-                  <div>
-                    <input
-                      type="checkbox"
-                      class="filters__checkbox"
-                      id="Rosa"
-                      name="Rosa"
-                    />
-                    <label for="Rosa">Rosa</label>
-                  </div>
-                  <div>
-                    <input
-                      type="checkbox"
-                      class="filters__checkbox"
-                      id="Vinho"
-                      name="Vinho"
-                    />
-                    <label for="Vinho">Vinho</label>
+
+                  <div class="filters__show-more-colors">
+                    <p class="filters__more-colors-container">
+                      Ver todas as cores
+                    </p>
+                    <svg
+                      width="9"
+                      height="7"
+                      viewBox="0 0 20 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 1L10 14L19 1.0135"
+                        stroke="#666666"
+                        stroke-linecap="round"
+                      />
+                    </svg>
                   </div>
                 </div>
               </div>
@@ -258,48 +292,53 @@
                     />
                   </svg>
                 </div>
+
                 <div class="filters__prices-content">
-                  <div>
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox-prices"
-                      id="50"
+                      id="0 - 50"
                       name="50"
                     />
                     <label for="50">De R$0 a R$50</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox-prices"
-                      id="150"
+                      id="51 - 150"
                       name="150"
                     />
                     <label for="150">De R$51 a R$150</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox-prices"
-                      id="300"
+                      id="151 - 300"
                       name="300"
                     />
                     <label for="300">De R$151 a R$300</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox-prices"
-                      id="500"
+                      id="301 - 500"
                       name="500"
                     />
                     <label for="filter__500">De R$301 a R$500</label>
                   </div>
-                  <div>
+
+                  <div class="filters__checkbox-content">
                     <input
                       type="checkbox"
                       class="filters__checkbox-prices"
-                      id="501"
+                      id="501 - 999999"
                       name="501"
                     />
                     <label for="501">A partir de R$501</label>
@@ -307,6 +346,7 @@
                 </div>
               </div>
             </div>
+
             <div class="content__products">
               <ul class="content__products-list"></ul>
               <button class="content__show-more">Carregar Mais</button>
@@ -314,6 +354,7 @@
           </div>
         </div>
       </main>
+
       <footer class="footer">
         <p class="footer__text">M3: Implantação de E-commerce VTEX</p>
       </footer>

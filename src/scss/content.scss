@@ -30,6 +30,9 @@
     @media (max-width: 640px) {
       margin-left: 0;
     }
+    @media (max-width: 425px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   .produto {
@@ -52,7 +55,7 @@
   .buy-button {
     width: 195px;
     height: 33px;
-    background-color: #000;
+    background-color: #000000;
     color: #fff;
     margin-top: 10px;
     cursor: pointer;
